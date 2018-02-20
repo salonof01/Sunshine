@@ -20,6 +20,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.ShareCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -155,6 +156,29 @@ public class MainActivity extends AppCompatActivity implements ForecastAdapterOn
         mErrorMessageDisplay.setVisibility(View.VISIBLE);
     }
 
+    private void openMap(){
+
+        String myAddress = "9608 SW 3 Lane Miami, florida 33174";
+        Uri geoLocation = Uri.parse("geo:0,0?q="+ myAddress);
+
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(geoLocation);
+         if (intent.resolveActivity(getPackageManager()) != null){
+
+             startActivity(intent);
+         }
+       else {
+             Log.d(TAG, "Could not load Map" + geoLocation.toString()
+                     + ", no receiving apps installed");
+         }
+
+    }
+
+
+
+
+
+
     public class FetchWeatherTask extends AsyncTask<String, Void, String[]> {
 
         @Override
@@ -222,6 +246,12 @@ public class MainActivity extends AppCompatActivity implements ForecastAdapterOn
         }
 
         // TODO (2) Launch the map when the map menu item is clicked
+        if (id == R.id.open_Map){
+
+          openMap();
+          return true;
+
+        }
 
         return super.onOptionsItemSelected(item);
     }
