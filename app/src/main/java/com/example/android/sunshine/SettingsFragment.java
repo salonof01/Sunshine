@@ -14,12 +14,12 @@ import android.support.v7.preference.PreferenceScreen;
 // COMPLETED (10) Implement OnSharedPreferenceChangeListener from SettingsFragment
 public class SettingsFragment extends PreferenceFragmentCompat implements SharedPreferences.OnSharedPreferenceChangeListener{
 
-
+//
 
     // COMPLETED (5) Override onCreatePreferences and add the preference xml file using addPreferencesFromResource
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-        addPreferencesFromResource(R.xml.preferencias);
+        addPreferencesFromResource(R.xml.pref_general);
          // Do step 9 within onCreatePreference
         // COMPLETED (9) Set the preference summary on each preference that isn't a CheckBoxPreference
         SharedPreferences sharedPreferences = getPreferenceScreen().getSharedPreferences();
