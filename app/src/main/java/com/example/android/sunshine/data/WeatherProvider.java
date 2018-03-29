@@ -319,9 +319,9 @@ public class WeatherProvider extends ContentProvider {
 
 
 //          TODO (2) Only implement the functionality, given the proper URI, to delete ALL rows in the weather table
+
         switch (sUriMatcher.match(uri)) {
 
-//          TODO (2) Only implement the functionality, given the proper URI, to delete ALL rows in the weather table
             case CODE_WEATHER:
                 numRowsDeleted = mOpenHelper.getWritableDatabase().delete(
                         WeatherContract.WeatherEntry.TABLE_NAME,
