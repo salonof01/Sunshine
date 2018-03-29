@@ -225,7 +225,6 @@ public class MainActivity extends AppCompatActivity implements
   //      TODO (23) Remove the onStartLoading method declaration
 //      TODO (24) Remove the loadInBackground method declaration
 //      TODO (25) Remove the deliverResult method declaration
-//          TODO (22) If the loader requested is our forecast loader, return the appropriate CursorLoader
 
         switch (loaderId) {
 
