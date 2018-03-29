@@ -293,6 +293,7 @@ public class WeatherProvider extends ContentProvider {
         return cursor;
     }
 
+//  TODO (1) Implement the delete method of the ContentProvider
     /**
      * Deletes data at a given URI with optional arguments for more fine tuned deletions.
      *
@@ -304,9 +305,9 @@ public class WeatherProvider extends ContentProvider {
     @Override
     public int delete(@NonNull Uri uri, String selection, String[] selectionArgs) {
 
+
         /* Users of the delete method will expect the number of rows deleted to be returned. */
         int numRowsDeleted;
-
         /*
          * If we pass null as the selection to SQLiteDatabase#delete, our entire table will be
          * deleted. However, if we do pass null and delete all of the rows in the table, we won't
@@ -315,6 +316,9 @@ public class WeatherProvider extends ContentProvider {
          * deleted, which is what the caller of this method expects.
          */
         if (null == selection) selection = "1";
+
+
+//          TODO (2) Only implement the functionality, given the proper URI, to delete ALL rows in the weather table
 
         switch (sUriMatcher.match(uri)) {
 
@@ -335,8 +339,14 @@ public class WeatherProvider extends ContentProvider {
             getContext().getContentResolver().notifyChange(uri, null);
         }
 
+//      TODO (3) Return the number of rows deleted
         return numRowsDeleted;
     }
+
+
+
+
+
 
     /**
      * In Sunshine, we aren't going to do anything with this method. However, we are required to
